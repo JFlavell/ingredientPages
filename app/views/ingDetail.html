@@ -1,4 +1,4 @@
-<ul class="menu">
+<ul class="navbar-static-top">
   <li>
   	<a href="#/ingredients">
   		Ingredient List
@@ -12,13 +12,36 @@
 		</a>
 	</h1>
 	<hr/>
-	<h3>Links to: </h3>
-	<ul>
-		<li ng-repeat="link in ing.ingredient.links">
-			({{link.name}}) ->
-			<a ng-href="#/ingredients/{{link.ingredient}}">
-				{{link.ingredient}}
-			</a>
-		</li>
-	</ul>
+	<div ng-show="length">
+		<h3>Links to: </h3>
+		<ul>
+			<li ng-repeat="link in ing.ingredient.links">
+					({{link.name}}) ->
+					<a ng-href="#/ingredients/{{link.ingredient}}">
+						{{link.ingredient}}
+					</a>
+					<button type="button" ng-click="delete($index)">-</button>
+			</li>
+		</ul>
+		<div>
+			Add a link:
+			<form class="form-horizontal">
+				<p>type:</p>    
+				<input type="text" ng-model="type">
+				<p>ingredient:</p>
+				<input type="text" ng-model="ingredient">
+				<button type="submit" ng-click="add(type, ingredient)">+</button>
+			</form>
+		</div>
+	</div>
+	<div ng-show="!length">
+		Add a link:
+		<form class="form-horizontal">
+			<p>type:</p>    
+			<input type="text" ng-model="type">
+			<p>ingredient:</p>
+			<input type="text" ng-model="ingredient">
+			<button type="submit" ng-click="add(type, ingredient)">+</button>
+		</form>
+	</div>
 </div>

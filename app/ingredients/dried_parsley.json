@@ -1,11 +1,6 @@
 {
 	"ingredient": {
 		"name": "DRIED_PARSLEY",
-		"parentIngredient": "PARSLEY",
-		"links": [{
-			"name": "none",
-			"ingredient": "",
-			"parentIngredient": ""
-			}]
+		"links": []
 	}
 }
